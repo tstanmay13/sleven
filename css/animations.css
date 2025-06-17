@@ -1,0 +1,146 @@
+/* Dice Face Transformations */
+.face.front { transform: translateZ(25px); }
+.face.back { transform: rotateY(180deg) translateZ(25px); }
+.face.right { transform: rotateY(90deg) translateZ(25px); }
+.face.left { transform: rotateY(-90deg) translateZ(25px); }
+.face.top { transform: rotateX(90deg) translateZ(25px); }
+.face.bottom { transform: rotateX(-90deg) translateZ(25px); }
+
+/* Dice Rolling Animations */
+@keyframes diceRoll {
+    0% { transform: rotateX(0) rotateY(0) rotateZ(0); }
+    25% { transform: rotateX(360deg) rotateY(180deg) rotateZ(90deg); }
+    50% { transform: rotateX(720deg) rotateY(360deg) rotateZ(180deg); }
+    75% { transform: rotateX(1080deg) rotateY(540deg) rotateZ(270deg); }
+    100% { transform: rotateX(1440deg) rotateY(720deg) rotateZ(360deg); }
+}
+
+@keyframes diceBounce {
+    0% { transform: translateY(0) rotateX(0) rotateY(0) rotateZ(0); }
+    50% { transform: translateY(-100px) rotateX(180deg) rotateY(180deg) rotateZ(90deg); }
+    100% { transform: translateY(0) rotateX(360deg) rotateY(360deg) rotateZ(180deg); }
+}
+
+/* Cup Shaking Animation */
+@keyframes cupShake {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    25% { transform: translateX(-50%) rotate(-15deg); }
+    50% { transform: translateX(-50%) rotate(0deg); }
+    75% { transform: translateX(-50%) rotate(15deg); }
+    100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+/* Dice Rattle Animation */
+@keyframes diceRattle {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-5px, -5px) rotate(-5deg); }
+    50% { transform: translate(5px, 5px) rotate(5deg); }
+    75% { transform: translate(-5px, 5px) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* Win Animation */
+@keyframes winPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes confetti {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Animation Classes */
+.rolling {
+    animation: diceRoll 1s ease-in-out;
+}
+
+.bouncing {
+    animation: diceBounce 0.5s ease-in-out;
+}
+
+.shaking {
+    animation: cupShake 0.2s ease-in-out infinite;
+}
+
+.rattling {
+    animation: diceRattle 0.1s ease-in-out infinite;
+}
+
+.winning {
+    animation: winPulse 0.5s ease-in-out infinite;
+}
+
+/* Particle Effects */
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.particle.confetti {
+    animation: confetti 1s ease-in-out forwards;
+}
+
+/* Transition Effects */
+.fade-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Timer Animation */
+@keyframes timerPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.timer-warning {
+    animation: timerPulse 1s ease-in-out infinite;
+    color: var(--accent-color);
+}
+
+/* Aim Interface Animations */
+@keyframes aimPulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.trajectory-preview {
+    animation: aimPulse 1s ease-in-out infinite;
+}
+
+/* Mobile Shake Detection Feedback */
+@keyframes shakeFeedback {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake-detected {
+    animation: shakeFeedback 0.2s ease-in-out;
+} 
