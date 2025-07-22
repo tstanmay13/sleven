@@ -4,7 +4,7 @@
 
 1. Navigate to the game directory:
 ```bash
-cd /Users/tanmay/Documents/personal/sleven/sleven
+cd /Users/tanmay/Documents/personal/sleven
 ```
 
 2. Start the HTTPS server (required for mobile):
