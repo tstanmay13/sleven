@@ -1,0 +1,16 @@
+# SSL Certificate (auto-generated)
+server.pem
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log

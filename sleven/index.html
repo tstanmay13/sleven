@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#1a1a1a">
+    <title>Elevens - Dice Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div class="screen" id="home-screen">
+            <h1 class="game-title">ELEVENS</h1>
+            <p class="tagline">The Ultimate Dice Drinking Game</p>
+            <div class="player-setup">
+                <input type="text" id="player-name" placeholder="Enter your name" maxlength="20">
+                <button id="start-btn" class="primary-btn">Start Game</button>
+            </div>
+            <div class="instructions">
+                <h3>How to Roll:</h3>
+                <p>📐 Follow the path with your finger</p>
+                <p>🎯 Stay on the line for accuracy</p>
+                <p>🚀 Flick at the end to roll!</p>
+            </div>
+        </div>
+
+        <div class="screen hidden" id="game-screen">
+            <div class="game-header">
+                <div class="player-info">
+                    <span id="current-player"></span>
+                    <span id="roll-count">Rolls: 0</span>
+                </div>
+            </div>
+
+            <div class="dice-container">
+                <div class="dice" id="dice1">
+                    <div class="face front">⚀</div>
+                    <div class="face back">⚅</div>
+                    <div class="face right">⚁</div>
+                    <div class="face left">⚄</div>
+                    <div class="face top">⚂</div>
+                    <div class="face bottom">⚃</div>
+                </div>
+                <div class="dice" id="dice2">
+                    <div class="face front">⚀</div>
+                    <div class="face back">⚅</div>
+                    <div class="face right">⚁</div>
+                    <div class="face left">⚄</div>
+                    <div class="face top">⚂</div>
+                    <div class="face bottom">⚃</div>
+                </div>
+            </div>
+
+            <div class="flick-area">
+                <svg id="path-svg" viewBox="0 0 300 400">
+                    <!-- Start point indicator -->
+                    <circle cx="150" cy="350" r="15" fill="#4ecdc4" opacity="0.5"/>
+                    <text x="150" y="380" text-anchor="middle" fill="#4ecdc4" font-size="14">START</text>
+                    
+                    <!-- End point indicator -->
+                    <circle cx="150" cy="50" r="15" fill="#ff6b6b" opacity="0.5"/>
+                    <text x="150" y="40" text-anchor="middle" fill="#ff6b6b" font-size="14">FLICK!</text>
+                    
+                    <!-- Guide path -->
+                    <path id="guide-path" d="M 150 350 Q 100 250 150 150" 
+                          stroke="#4ecdc4" 
+                          stroke-width="30" 
+                          fill="none" 
+                          opacity="0.3"
+                          stroke-linecap="round"/>
+                    <!-- User's traced path -->
+                    <path id="user-path" 
+                          stroke="#ff6b6b" 
+                          stroke-width="8" 
+                          fill="none"/>
+                </svg>
+                
+                <div class="accuracy-indicator">
+                    <div class="accuracy-fill"></div>
+                </div>
+                
+                <p id="flick-instruction">Trace the path and flick!</p>
+            </div>
+
+            <div class="result-display hidden" id="result">
+                <h2 id="result-text"></h2>
+                <p id="result-action"></p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
